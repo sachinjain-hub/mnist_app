@@ -51,7 +51,11 @@ demo = gr.Interface(
     description="Draw a digit (0–9) or upload an image."
 )
 
+import os
+
 if __name__ == "__main__":
-    print(">>> Launching Gradio...")
-    demo.launch()
-    print(">>> Gradio stopped")
+    demo.launch(
+        server_name="0.0.0.0",
+        server_port=int(os.getenv("PORT", 7860"))
+    )
+
